@@ -1,9 +1,18 @@
+const cors = require('cors')
 const express = require('express')
 const app = express()
 const PORT = 3001
 
-app.get('/', (req, res) => {
-  res.send('Successful GET from home')
+//middleware
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(cors())
+app.use(function (req, res, next) {
+    res.setHeader('access-control-allow-origin', '*');
+    res.header("Content-Type",'application/json');
+    next()
+})
+//
 })
 
 app.listen(PORT, () => {

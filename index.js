@@ -37,6 +37,13 @@ app.post('/api/tree', (req,res) => {
         res.send(err.message)
     }
 })
+
+app.delete('/api/tree/:id', (req,res) => {
+    try {
+        animalsTable.deleteRecord(+req.params.id)
+        res.sendStatus(204)
+    } catch(err) {
+        res.send(err.message)
     }
 })
 

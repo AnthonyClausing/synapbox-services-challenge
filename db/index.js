@@ -16,5 +16,13 @@ animalsTable.addRecord = (recordData) => {
     animalsTable.totalRecords++
     mockTableRecords.push(recordData)
 }
+animalsTable.deleteRecord = (recordId) => {
+    const hasChildren = animalsTable.records.some(record => record.parentId === recordId)
+    if(!hasChildren) {
+        animalsTable.records = animalsTable.records.filter((record) => record.id !== recordId)
+    }else {
+        throw Error('Can not delete node with children')
+    }
+}
 //
 module.exports = animalsTable

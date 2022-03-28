@@ -24,5 +24,8 @@ animalsTable.deleteRecord = (recordId) => {
         throw Error('Can not delete node with children')
     }
 }
+animalsTable.updateParent = (recordId, newParentId) => {
+    animalsTable.records = animalsTable.records.map((record) => record.id === recordId ? {...record, parentId: newParentId} : record)
+}
 //
 module.exports = animalsTable

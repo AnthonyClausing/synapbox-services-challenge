@@ -47,6 +47,11 @@ app.delete('/api/tree/:id', (req,res) => {
     }
 })
 
+app.put('/api/tree/:id', (req, res) => {
+    animalsTable.updateParent(+req.params.id, +req.body["current-id"])
+    res.sendStatus(204)
+})
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`)
 })

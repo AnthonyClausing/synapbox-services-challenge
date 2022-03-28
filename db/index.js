@@ -12,5 +12,9 @@ const mockTableRecords = [
 ]
 animalsTable.records = mockTableRecords
 animalsTable.totalRecords += mockTableRecords.length
+animalsTable.addRecord = (recordData) => { 
+    animalsTable.totalRecords++
+    mockTableRecords.push(recordData)
+}
 //
 module.exports = animalsTable

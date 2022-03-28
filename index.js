@@ -15,11 +15,29 @@ app.use(function (req, res, next) {
     next()
 })
 //
+
 app.get('/api/tree', (req, res) => {
     //JSON.stringify used to prettify the raw response
     const resultTree = JSON.stringify(buildTree(animalsTable.records), null, 4)
     res.status(200).send(resultTree)
 })
+
+const buildNewAnimalEntry = (newEntryParams) => {
+    //in preparation of the possible feature of creating new trees, no parent param check, instead defaults to null if undefined
+    if(!newEntryParams.label) throw Error('missing or empty param: "label"')
+    return {id: animalsTable.totalRecords + 1, label: newEntryParams.label, parentId: newEntryParams.parent || null}
+}
+
+app.post('/api/tree', (req,res) => {
+    try {
+        const newEntry = buildNewAnimalEntry(req.body)
+        animalsTable.addRecord(newEntry)
+        res.sendStatus(201)
+    }catch(err) {
+        res.send(err.message)
+    }
+})
+    }
 })
 
 app.listen(PORT, () => {

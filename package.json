@@ -1,0 +1,27 @@
+{
+  "name": "synapbox-services-challenge",
+  "version": "1.0.0",
+  "description": "an API built with Node.js and Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyClausing/synapbox-services-challenge.git"
+  },
+  "author": "Anthony Clausing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyClausing/synapbox-services-challenge/issues"
+  },
+  "homepage": "https://github.com/AnthonyClausing/synapbox-services-challenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
